@@ -1,0 +1,41 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+}
+
+.arrow {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-primary-strong);
+  display: grid;
+  place-items: center;
+}
+
+.arrow:hover:not(:disabled) {
+  background: #fff;
+}
+
+.arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.select {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+  padding: 4px 6px;
+  text-align: center;
+  cursor: pointer;
+}

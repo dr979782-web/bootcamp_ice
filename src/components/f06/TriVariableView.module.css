@@ -1,0 +1,42 @@
+/* ── 데스크탑: 가로 3열 ───────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.cell {
+  min-width: 0;
+}
+
+/* ── 모바일 (≤768px) ─────────────────────────── */
+@media (max-width: 768px) {
+  /* 세로 나열 */
+  .grid.stack {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* 좌우 스와이프 카드: 다음 카드가 살짝 보이도록 86% 폭 */
+  .grid.swipe {
+    display: flex;
+    gap: var(--space-3);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* 카드 그림자/테두리가 잘리지 않도록 여백 */
+    padding-bottom: 2px;
+  }
+
+  .grid.swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid.swipe .cell {
+    flex: 0 0 86%;
+    scroll-snap-align: start;
+  }
+}

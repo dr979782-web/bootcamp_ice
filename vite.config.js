@@ -1,0 +1,17 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'node:path';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+  server: {
+    port: 5173,
+    // 백엔드(API) 서버가 생기면 여기서 프록시
+    // proxy: { '/api': 'http://localhost:8000' },
+  },
+});

@@ -1,0 +1,154 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-navy-800);
+  color: var(--color-text-inverse);
+}
+
+.inner {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.org,
+.service {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.org strong {
+  font-size: 19px;
+}
+.org small {
+  font-size: 10px;
+  opacity: 0.75;
+}
+
+.service strong {
+  font-size: 18px;
+}
+.service small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 28px;
+}
+
+.link {
+  position: relative;
+  font-size: 14px;
+  padding: 6px 0;
+  opacity: 0.88;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 3px;
+  border-radius: 2px;
+  background: #4d8dff;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  display: grid;
+  place-items: center;
+}
+
+.iconBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menuBtn {
+  display: none;
+}
+
+/* 태블릿 이하: 서비스명 숨김, 햄버거 메뉴 */
+@media (max-width: 1024px) {
+  .service {
+    display: none;
+  }
+  .brand {
+    border-right: none;
+    padding-right: 0;
+  }
+  .menuBtn {
+    display: grid;
+  }
+  .tools {
+    margin-left: auto;
+  }
+  .nav {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-navy-800);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 16px 16px;
+  }
+  .nav.open {
+    display: flex;
+  }
+  .link {
+    padding: 12px 0;
+  }
+  .active::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .org small {
+    display: none;
+  }
+  .org strong {
+    font-size: 16px;
+  }
+  .brand img {
+    width: 36px;
+    height: 36px;
+  }
+}

@@ -1,0 +1,94 @@
+/* 데스크탑: 왼쪽 조작부 + 오른쪽 비교 화면 */
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 520px);
+  justify-content: center;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.viewer {
+  min-width: 0;
+}
+
+.hint {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+  font-size: 12px;
+  color: var(--color-text-sub);
+  line-height: 1.6;
+}
+
+.hint svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--color-primary);
+}
+
+.hint kbd {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 4px;
+  border: 1px solid var(--color-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  text-align: center;
+}
+
+.legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 색뿐 아니라 선 모양(실선/점선)으로도 구분 — 정의서 색각 배려 */
+.line {
+  flex-shrink: 0;
+  width: 26px;
+  height: 0;
+}
+
+.red {
+  border-top: 2px solid #e53935;
+}
+
+.dashed {
+  border-top: 2px dashed #8a95ab;
+}
+
+/* 태블릿·모바일: 조작부 위, 비교 화면 아래 */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .viewer {
+    order: -1;
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

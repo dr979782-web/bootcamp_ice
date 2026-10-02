@@ -1,0 +1,144 @@
+.wrap {
+  width: 100%;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #1b2236;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  /* 세로 스크롤은 브라우저에 맡기고, 가로 드래그만 핸들 이동으로 사용 */
+  touch-action: pan-y;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+  pointer-events: none;
+}
+
+.clip {
+  position: absolute;
+  inset: 0;
+  will-change: clip-path;
+}
+
+.empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #eef2f8;
+  color: var(--color-text-sub);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* 같은 위치의 반대쪽 빈 화면과 구분되도록 위층 빈 화면은 살짝 진하게 */
+.clip .empty {
+  background: #e3e9f3;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tagLeft {
+  left: 10px;
+}
+
+.tagRight {
+  right: 10px;
+  background: var(--color-navy-800);
+}
+
+.loading {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(15, 35, 80, 0.8);
+  color: #fff;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1.5px;
+  width: 3px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(15, 35, 80, 0.35);
+}
+
+.handle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  cursor: ew-resize;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  touch-action: none;
+}
+
+.handle:focus-visible {
+  outline: 3px solid #ffd54a;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .handle {
+    width: 44px;
+    height: 44px;
+  }
+}

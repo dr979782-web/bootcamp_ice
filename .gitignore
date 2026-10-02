@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────
+# 북극 해빙 모니터링 — .gitignore
+# 저장소 최상위(arctic-seaice-web/)에 두면 Frontend/ 등 하위 폴더 전체에 적용됩니다.
+# ─────────────────────────────────────────────
+
+# 의존성 — npm install 로 다시 받으면 됨
+node_modules/
+
+# 빌드 결과물 — npm run build 로 다시 생성됨
+dist/
+dist-ssr/
+build/
+
+# Vite 캐시
+.vite/
+*.local
+
+# 로그
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 환경 변수 (API 키 등 비밀 값) — 예시 파일만 올리기
+.env
+.env.*
+!.env.example
+
+# 에디터 설정 (팀 공통 추천 확장 목록만 공유)
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# OS가 만드는 파일
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 임시 파일·압축 파일
+*.tmp
+*.zip
+*.tgz
+
+# 테스트 커버리지
+coverage/
+
+# ── 이미지 파일 (png) ──────────────────────────
+# 지도 이미지(약 400MB)는 저장소에 올리지 않습니다. 팀 드라이브 등으로 따로 공유하세요.
+*.png

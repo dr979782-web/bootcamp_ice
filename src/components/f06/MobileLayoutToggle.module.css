@@ -1,0 +1,29 @@
+.toggle {
+  display: none;
+  padding: 3px;
+  border-radius: 8px;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+}
+
+.option {
+  border: none;
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.active {
+  background: #fff;
+  color: var(--color-primary-strong);
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(16, 32, 72, 0.12);
+}
+
+@media (max-width: 768px) {
+  .toggle {
+    display: inline-flex;
+  }
+}
